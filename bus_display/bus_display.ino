@@ -27,37 +27,6 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
 // Adafruit_BluefruitLE_UART ble(Serial1, BLUEFRUIT_UART_MODE_PIN);
 
 
-/*
- * 1: B,C
- * 2:  A, B, D, E, G, 
- * 3: A, B, C, D, G
- * 4: F, G, B, C
- * 5: A, F, G, C ,D
- * 6: A, F, G, E, C, D
- * 7: A, B, C
- * 8: A, B, C, D, E, F, G, 
- * 9: A, B, C, D, F, G, 
- * 0: A, B, C, D, E, F, 
- 
- Route 1: 0x13 on 0x20
- Route 2: 0x12 on 0x20
- 
- Route 3: 0x13 on 0x21
- Route 4: 0x12 on 0x21
- 
- Route 5: 0x13 on 0x22
- Route 6: 0x12 on 0x22
- */
-
-// A small helper for throwing initialization errors. 
-void error(const __FlashStringHelper*err) {
-  Serial.println(err);
-  while (1);
-}
-
-//for writing values: port A is 0x12, port b is 0x13. then write your hex values
-
-
  //The digits and Arrows are written in Hex, because that is the most commonly used form for I2C transmission. They break down into binary as instruction on what LED segments should be lit up.
                      //0    1      2    3     4       5     6    7      8    9     -
 const byte digits[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x00};
@@ -68,16 +37,19 @@ const byte chips[] = {0x20, 0x21, 0x22};
                   //  A     B
 const byte ports[] = {0x12, 0x13};
 
+const int blinkTime = 1000;
+
 byte bank[6][3] = {
   {digits[10], digits[10], digits[10]},  //digit 1
   {digits[10], digits[10], digits[10]},  //digit 2
   {digits[10], digits[10], digits[10]},  //digit 3
+  
   {digits[10], digits[10], digits[10]},  //digit 4
   {digits[10], digits[10], digits[10]},  //digit 5
   {digits[10], digits[10], digits[10]},  //digit 6
 };
 
-//const String data = "121340561781900441"; //used to test code without actually sending string over bluetooth.
+//String data = "121340561 781900441"; //used to test code without actually sending string over bluetooth.
 String data = "";
 
 const byte cka = 4;
@@ -85,6 +57,12 @@ const byte ckb = 5;
 const byte ckc = 6;
 
 void setup() {
+  pinMode(cka, OUTPUT);
+  pinMode(ckb, OUTPUT);
+  pinMode(ckc, OUTPUT);
+  digitalWrite(cka, LOW);
+  digitalWrite(ckb, LOW);
+  digitalWrite(ckc, LOW);
   Wire.begin();         //set up i2c
   Serial.begin(115200); //set serial at 115200 baud, for high speed data transfer
   Serial.println(F("CHS Bus Loop Dispatch System Debug Terminal"));
@@ -92,14 +70,16 @@ void setup() {
   //set all pins on our i2c chips to output 
   for(int i = 0; i < 3; i++){           
      Wire.beginTransmission(chips[i]);
-      Wire.write(0x00);
-      Wire.write(0x00);
-      Wire.endTransmission();
-      Wire.beginTransmission(chips[i]);
-      Wire.write(0x01);
-      Wire.write(0x00);
-      Wire.endTransmission();
+     Wire.write(0x00);
+     Wire.write(0x00);
+     Wire.endTransmission();
+     Wire.beginTransmission(chips[i]);
+     Wire.write(0x01);
+     Wire.write(0x00);
+     Wire.endTransmission();
   }
+
+  
 
   //initalize bluefruit, and select verbosity. 
   if(!ble.begin(VERBOSE_MODE)){
@@ -142,52 +122,93 @@ void setup() {
 
 }
 
+void loop() {
+  if(ble.available()){
+    getMsg();
+  }
+  digitalWrite(cka, HIGH);
+  blinkChips(bank[0][0], bank[1][0], bank[2][0], bank[3][0], bank[4][0], bank[5][0]);
+  digitalWrite(cka, LOW);
+  digitalWrite(ckb, HIGH);
+  blinkChips(bank[0][1], bank[1][1], bank[2][1], bank[3][1], bank[4][1], bank[5][1]);
+  digitalWrite(ckb, LOW);
+  digitalWrite(ckc, HIGH);
+  blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]);
+  digitalWrite(ckc, LOW); 
+  
+}
 void splitMsg(String msg){
     //split message into 2 longs, so it can hold this data
-    unsigned long first = msg.substring(0, 10).toInt();
-    unsigned long last = msg.substring(10).toInt();
+    unsigned long first = msg.substring(0, 9).toInt();
+    unsigned long last = msg.substring(9).toInt();
     //write values to bank using first and last variables
-    unsigned long divisor = 1000000000;                                     //set a divisor to find the first digit
+    unsigned long divisor = 100000000;                                     //set a divisor to find the first digit
     for(int x = 0; x < 3; x++){                                             //loop through the first three banks
       for(int y = 0; y < 3; y++){                                           //loop through the three digits per bank
         if(y == 2){
           bank[x][y] = arrows[(first / divisor) % 10];
+
         }else{
-        bank[x][y] = digits[(first / divisor) % 10];                        //find the value that should go in this digit
+          bank[x][y] = digits[(first / divisor) % 10];                        //find the value that should go in this digit
         }
         divisor = divisor / 10;                                             //divide the divisor, so next time we get the next digit.
       }
     }
     //do the same as above, but with the last three banks
-    divisor = 1000000000;
+    divisor = 100000000;
     for(int x = 3; x < 6; x++){ 
       for(int y = 0; y < 3; y++){
         if(y == 2){
           bank[x][y] = arrows[(last / divisor) % 10];
         }else{
-        bank[x][y] = digits[(last / divisor) % 10];
+          bank[x][y] = digits[(last / divisor) % 10];
         }
         divisor = divisor / 10;
       }
     } 
 }
 
-void loop() {
+
+
+void getMsg(){
   while(ble.available()){
     int c = ble.read();
     data.concat((char)c);
   }
   splitMsg(data);
-  for(int x = 0; x < 3; x++){                                             //loop through the first three banks
-      for(int y = 0; y < 3; y++){    
-        Serial.println(bank[x][y]);
-      }
   
-}
 }
 
-void getMsg(){
-  
+void blinkChips(byte a1, byte b1, byte a2, byte b2, byte a3, byte b3){
+  writeChip(chips[0], ports[0], a1);
+  writeChip(chips[1], ports[0], a2);
+  writeChip(chips[2], ports[0], a3);
+  delayMicroseconds(blinkTime);
+  for(byte chip = 0; chip < 3; chip++){
+    writeChip(chips[chip], ports[0], 0);
+  } 
+  writeChip(chips[0], ports[1], b1);
+  writeChip(chips[1], ports[1], b2);
+  writeChip(chips[2], ports[1], b3);
+  delayMicroseconds(blinkTime);
+  for(byte chip = 0; chip < 3; chip++){
+    writeChip(chips[chip], ports[1], 0);
+  }
+   
+}
+
+void writeChip(byte chip, byte reg, byte data){
+  Wire.beginTransmission(chip);
+  Wire.write(reg);
+  Wire.write(data);
+  Wire.endTransmission();
+}
+
+// A small helper for throwing initialization errors. 
+
+void error(const __FlashStringHelper*err) {
+  Serial.println(err);
+  while (1);
 }
 
 
