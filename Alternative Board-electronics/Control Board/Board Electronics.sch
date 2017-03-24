@@ -90,7 +90,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 1 8
+Sheet 1 2
 Title ""
 Date ""
 Rev ""
@@ -138,44 +138,10 @@ Text Label 7050 3350 0    60   ~ 0
 GND
 Text Label 7050 3450 0    60   ~ 0
 GND
-$Sheet
-S 8750 2700 900  700 
-U 58ACBC29
-F0 "Route 1" 60
-F1 "BusLoopId.sch" 60
-F2 "A" I L 8750 2750 60 
-F3 "B" I L 8750 2850 60 
-F4 "C" I L 8750 2950 60 
-F5 "D" I L 8750 3050 60 
-F6 "E" I L 8750 3150 60 
-F7 "F" I L 8750 3250 60 
-F8 "G" I L 8750 3350 60 
-F9 "CKA" I R 9650 2750 60 
-F10 "CKB" I R 9650 2850 60 
-F11 "CKC" I R 9650 2950 60 
-F12 "GND" I R 9650 3050 60 
-$EndSheet
-Text Label 9900 3050 2    60   ~ 0
+Text Label 9500 3050 2    60   ~ 0
 GND
-Text Label 9900 2050 2    60   ~ 0
+Text Label 9500 2050 2    60   ~ 0
 GND
-$Sheet
-S 8750 1700 900  750 
-U 58AE5C24
-F0 "Route 2" 60
-F1 "BusLoopId.sch" 60
-F2 "CKC" I R 9650 1950 60 
-F3 "CKB" I R 9650 1850 60 
-F4 "A" I L 8750 1750 60 
-F5 "B" I L 8750 1850 60 
-F6 "C" I L 8750 1950 60 
-F7 "D" I L 8750 2050 60 
-F8 "E" I L 8750 2150 60 
-F9 "F" I L 8750 2250 60 
-F10 "G" I L 8750 2350 60 
-F11 "CKA" I R 9650 1750 60 
-F12 "GND" I R 9650 2050 60 
-$EndSheet
 $Comp
 L MCP23017 U4
 U 1 1 58B780F9
@@ -197,40 +163,6 @@ Text Label 7050 6200 0    60   ~ 0
 GND
 Text Label 7050 6300 0    60   ~ 0
 GND
-$Sheet
-S 8750 5550 900  700 
-U 58B7810D
-F0 "Route 3" 60
-F1 "BusLoopId.sch" 60
-F2 "A" I L 8750 5600 60 
-F3 "B" I L 8750 5700 60 
-F4 "C" I L 8750 5800 60 
-F5 "D" I L 8750 5900 60 
-F6 "E" I L 8750 6000 60 
-F7 "F" I L 8750 6100 60 
-F8 "G" I L 8750 6200 60 
-F9 "CKA" I R 9650 5600 60 
-F10 "CKB" I R 9650 5700 60 
-F11 "CKC" I R 9650 5800 60 
-F12 "GND" I R 9650 5900 60 
-$EndSheet
-$Sheet
-S 8750 4550 900  750 
-U 58B7811C
-F0 "Route 4" 60
-F1 "BusLoopId.sch" 60
-F2 "CKC" I R 9650 4800 60 
-F3 "CKB" I R 9650 4700 60 
-F4 "A" I L 8750 4600 60 
-F5 "B" I L 8750 4700 60 
-F6 "C" I L 8750 4800 60 
-F7 "D" I L 8750 4900 60 
-F8 "E" I L 8750 5000 60 
-F9 "F" I L 8750 5100 60 
-F10 "G" I L 8750 5200 60 
-F11 "CKA" I R 9650 4600 60 
-F12 "GND" I R 9650 4900 60 
-$EndSheet
 $Comp
 L MCP23017 U5
 U 1 1 58B7BA61
@@ -252,83 +184,17 @@ Text Label 7050 9000 0    60   ~ 0
 GND
 Text Label 7050 9100 0    60   ~ 0
 GND
-$Sheet
-S 8750 8350 900  700 
-U 58B7BA73
-F0 "Route 5" 60
-F1 "BusLoopId.sch" 60
-F2 "A" I L 8750 8400 60 
-F3 "B" I L 8750 8500 60 
-F4 "C" I L 8750 8600 60 
-F5 "D" I L 8750 8700 60 
-F6 "E" I L 8750 8800 60 
-F7 "F" I L 8750 8900 60 
-F8 "G" I L 8750 9000 60 
-F9 "CKA" I R 9650 8400 60 
-F10 "CKB" I R 9650 8500 60 
-F11 "CKC" I R 9650 8600 60 
-F12 "GND" I R 9650 8700 60 
-$EndSheet
-$Sheet
-S 8750 7350 900  750 
-U 58B7BA82
-F0 "Route 6" 60
-F1 "BusLoopId.sch" 60
-F2 "CKC" I R 9650 7600 60 
-F3 "CKB" I R 9650 7500 60 
-F4 "A" I L 8750 7400 60 
-F5 "B" I L 8750 7500 60 
-F6 "C" I L 8750 7600 60 
-F7 "D" I L 8750 7700 60 
-F8 "E" I L 8750 7800 60 
-F9 "F" I L 8750 7900 60 
-F10 "G" I L 8750 8000 60 
-F11 "CKA" I R 9650 7400 60 
-F12 "GND" I R 9650 7700 60 
-$EndSheet
-Text Label 9900 2750 2    60   ~ 0
+Text Label 9500 2950 2    60   ~ 0
 CKA
-Text Label 9900 2850 2    60   ~ 0
+Text Label 9500 2850 2    60   ~ 0
 CKB
-Text Label 9900 2950 2    60   ~ 0
+Text Label 9500 2750 2    60   ~ 0
 CKC
-Text Label 9900 1750 2    60   ~ 0
+Text Label 9500 1950 2    60   ~ 0
 CKA
-Text Label 9900 1850 2    60   ~ 0
+Text Label 9500 1850 2    60   ~ 0
 CKB
-Text Label 9900 1950 2    60   ~ 0
-CKC
-Text Label 9900 5900 2    60   ~ 0
-GND
-Text Label 9900 4900 2    60   ~ 0
-GND
-Text Label 9900 5600 2    60   ~ 0
-CKA
-Text Label 9900 5700 2    60   ~ 0
-CKB
-Text Label 9900 5800 2    60   ~ 0
-CKC
-Text Label 9900 4600 2    60   ~ 0
-CKA
-Text Label 9900 4700 2    60   ~ 0
-CKB
-Text Label 9900 4800 2    60   ~ 0
-CKC
-Text Label 9900 8700 2    60   ~ 0
-GND
-Text Label 9900 7700 2    60   ~ 0
-GND
-Text Label 9900 8400 2    60   ~ 0
-CKA
-Text Label 9900 8500 2    60   ~ 0
-CKB
-Text Label 9900 8600 2    60   ~ 0
-CKC
-Text Label 9900 7400 2    60   ~ 0
-CKA
-Text Label 9900 7500 2    60   ~ 0
-CKB
-Text Label 9900 7600 2    60   ~ 0
+Text Label 9500 1750 2    60   ~ 0
 CKC
 $Sheet
 S 1950 3300 1900 2000
@@ -503,7 +369,7 @@ L C C1
 U 1 1 58C4CD9F
 P 1700 4100
 F 0 "C1" H 1725 4200 50  0000 L CNN
-F 1 "C" H 1725 4000 50  0000 L CNN
+F 1 "C.1uF" H 1725 4000 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 1738 3950 50  0001 C CNN
 F 3 "" H 1700 4100 50  0001 C CNN
 	1    1700 4100
@@ -601,9 +467,9 @@ Wire Wire Line
 Wire Wire Line
 	7050 3450 7300 3450
 Wire Wire Line
-	9650 3050 9900 3050
+	9250 3050 9500 3050
 Wire Wire Line
-	9650 2050 9900 2050
+	9250 2050 9500 2050
 Wire Wire Line
 	8350 1850 8300 1850
 Wire Wire Line
@@ -617,8 +483,6 @@ Wire Wire Line
 Wire Wire Line
 	8300 2350 8600 2350
 Wire Wire Line
-	8300 2450 8650 2450
-Wire Wire Line
 	8300 2850 8750 2850
 Wire Wire Line
 	8300 2950 8750 2950
@@ -629,7 +493,7 @@ Wire Wire Line
 Wire Wire Line
 	8300 3250 8750 3250
 Wire Wire Line
-	8300 3350 8750 3350
+	8300 3350 9450 3350
 Wire Wire Line
 	8350 1750 8750 1750
 Wire Wire Line
@@ -655,10 +519,6 @@ Wire Wire Line
 Wire Wire Line
 	8600 2250 8600 2350
 Wire Wire Line
-	8750 2350 8650 2350
-Wire Wire Line
-	8650 2350 8650 2450
-Wire Wire Line
 	7800 6500 7800 6750
 Wire Wire Line
 	7800 4500 7800 4200
@@ -681,8 +541,6 @@ Wire Wire Line
 Wire Wire Line
 	8300 5200 8600 5200
 Wire Wire Line
-	8300 5300 8650 5300
-Wire Wire Line
 	8300 5700 8750 5700
 Wire Wire Line
 	8300 5800 8750 5800
@@ -692,8 +550,6 @@ Wire Wire Line
 	8300 6000 8750 6000
 Wire Wire Line
 	8300 6100 8750 6100
-Wire Wire Line
-	8300 6200 8750 6200
 Wire Wire Line
 	8350 4600 8750 4600
 Wire Wire Line
@@ -718,10 +574,6 @@ Wire Wire Line
 	8750 5100 8600 5100
 Wire Wire Line
 	8600 5100 8600 5200
-Wire Wire Line
-	8750 5200 8650 5200
-Wire Wire Line
-	8650 5200 8650 5300
 Wire Wire Line
 	6800 8600 7300 8600
 Wire Wire Line
@@ -749,8 +601,6 @@ Wire Wire Line
 Wire Wire Line
 	8300 8000 8600 8000
 Wire Wire Line
-	8300 8100 8650 8100
-Wire Wire Line
 	8300 8500 8750 8500
 Wire Wire Line
 	8300 8600 8750 8600
@@ -760,8 +610,6 @@ Wire Wire Line
 	8300 8800 8750 8800
 Wire Wire Line
 	8300 8900 8750 8900
-Wire Wire Line
-	8300 9000 8750 9000
 Wire Wire Line
 	8350 7400 8750 7400
 Wire Wire Line
@@ -787,55 +635,19 @@ Wire Wire Line
 Wire Wire Line
 	8600 7900 8600 8000
 Wire Wire Line
-	8750 8000 8650 8000
-Wire Wire Line
-	8650 8000 8650 8100
-Wire Wire Line
 	8300 8400 8750 8400
 Wire Wire Line
-	9650 2750 9900 2750
+	9250 2750 9500 2750
 Wire Wire Line
-	9650 2850 9900 2850
+	9250 2850 9500 2850
 Wire Wire Line
-	9900 2950 9650 2950
+	9500 2950 9250 2950
 Wire Wire Line
-	9650 1750 9900 1750
+	9250 1750 9500 1750
 Wire Wire Line
-	9650 1850 9900 1850
+	9250 1850 9500 1850
 Wire Wire Line
-	9900 1950 9650 1950
-Wire Wire Line
-	9650 5900 9900 5900
-Wire Wire Line
-	9650 4900 9900 4900
-Wire Wire Line
-	9650 5600 9900 5600
-Wire Wire Line
-	9650 5700 9900 5700
-Wire Wire Line
-	9900 5800 9650 5800
-Wire Wire Line
-	9650 4600 9900 4600
-Wire Wire Line
-	9650 4700 9900 4700
-Wire Wire Line
-	9900 4800 9650 4800
-Wire Wire Line
-	9650 8700 9900 8700
-Wire Wire Line
-	9650 7700 9900 7700
-Wire Wire Line
-	9650 8400 9900 8400
-Wire Wire Line
-	9650 8500 9900 8500
-Wire Wire Line
-	9900 8600 9650 8600
-Wire Wire Line
-	9650 7400 9900 7400
-Wire Wire Line
-	9650 7500 9900 7500
-Wire Wire Line
-	9900 7600 9650 7600
+	9500 1950 9250 1950
 Wire Wire Line
 	3850 5250 4300 5250
 Wire Wire Line
@@ -1041,7 +853,7 @@ F 1 "CONN_02X12" V 5500 4400 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x12_Pitch2.54mm" H 5500 3200 50  0001 C CNN
 F 3 "" H 5500 3200 50  0001 C CNN
 	1    5500 4400
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 Text Notes 5200 3700 0    60   ~ 0
 Extra Ports Breakout
@@ -1090,4 +902,186 @@ Text Label 5100 4150 0    60   ~ 0
 INT0
 Text Label 5100 4050 0    60   ~ 0
 INT1
+$Comp
+L CONN_02X06 J4
+U 1 1 58C288FE
+P 9000 2000
+F 0 "J4" H 9000 2350 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 1650 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 800 50  0001 C CNN
+F 3 "" H 9000 800 50  0001 C CNN
+	1    9000 2000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 2450 9400 2450
+Wire Wire Line
+	9400 2450 9400 2150
+Wire Wire Line
+	9400 2150 9250 2150
+$Comp
+L CONN_02X06 J5
+U 1 1 58C2949B
+P 9000 3000
+F 0 "J5" H 9000 3350 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 2650 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 1800 50  0001 C CNN
+F 3 "" H 9000 1800 50  0001 C CNN
+	1    9000 3000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 3350 9450 3150
+Wire Wire Line
+	9450 3150 9250 3150
+Text Label 9500 5900 2    60   ~ 0
+GND
+Text Label 9500 4900 2    60   ~ 0
+GND
+Text Label 9500 5800 2    60   ~ 0
+CKA
+Text Label 9500 5700 2    60   ~ 0
+CKB
+Text Label 9500 5600 2    60   ~ 0
+CKC
+Text Label 9500 4800 2    60   ~ 0
+CKA
+Text Label 9500 4700 2    60   ~ 0
+CKB
+Text Label 9500 4600 2    60   ~ 0
+CKC
+Wire Wire Line
+	9250 5900 9500 5900
+Wire Wire Line
+	9250 4900 9500 4900
+Wire Wire Line
+	8300 6200 9450 6200
+Wire Wire Line
+	9250 5600 9500 5600
+Wire Wire Line
+	9250 5700 9500 5700
+Wire Wire Line
+	9500 5800 9250 5800
+Wire Wire Line
+	9250 4600 9500 4600
+Wire Wire Line
+	9250 4700 9500 4700
+Wire Wire Line
+	9500 4800 9250 4800
+$Comp
+L CONN_02X06 J6
+U 1 1 58C2D5B4
+P 9000 4850
+F 0 "J6" H 9000 5200 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 4500 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 3650 50  0001 C CNN
+F 3 "" H 9000 3650 50  0001 C CNN
+	1    9000 4850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 5300 9400 5300
+Wire Wire Line
+	9400 5300 9400 5000
+Wire Wire Line
+	9400 5000 9250 5000
+Wire Wire Line
+	9450 6200 9450 6000
+Wire Wire Line
+	9450 6000 9250 6000
+Text Label 9500 8700 2    60   ~ 0
+GND
+Text Label 9500 7700 2    60   ~ 0
+GND
+Text Label 9500 8600 2    60   ~ 0
+CKA
+Text Label 9500 8500 2    60   ~ 0
+CKB
+Text Label 9500 8400 2    60   ~ 0
+CKC
+Text Label 9500 7600 2    60   ~ 0
+CKA
+Text Label 9500 7500 2    60   ~ 0
+CKB
+Text Label 9500 7400 2    60   ~ 0
+CKC
+Wire Wire Line
+	9250 8700 9500 8700
+Wire Wire Line
+	9250 7700 9500 7700
+Wire Wire Line
+	8300 9000 9450 9000
+Wire Wire Line
+	9250 8400 9500 8400
+Wire Wire Line
+	9250 8500 9500 8500
+Wire Wire Line
+	9500 8600 9250 8600
+Wire Wire Line
+	9250 7400 9500 7400
+Wire Wire Line
+	9250 7500 9500 7500
+Wire Wire Line
+	9500 7600 9250 7600
+$Comp
+L CONN_02X06 J8
+U 1 1 58C2DAAA
+P 9000 7650
+F 0 "J8" H 9000 8000 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 7300 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 6450 50  0001 C CNN
+F 3 "" H 9000 6450 50  0001 C CNN
+	1    9000 7650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 8100 9400 8100
+Wire Wire Line
+	9400 8100 9400 7800
+Wire Wire Line
+	9400 7800 9250 7800
+$Comp
+L CONN_02X06 J9
+U 1 1 58C2DAB3
+P 9000 8650
+F 0 "J9" H 9000 9000 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 8300 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 7450 50  0001 C CNN
+F 3 "" H 9000 7450 50  0001 C CNN
+	1    9000 8650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 9000 9450 8800
+Wire Wire Line
+	9450 8800 9250 8800
+Text Notes 9700 2900 0    60   ~ 0
+Loop 1\n
+Text Notes 9650 1900 0    60   ~ 0
+Loop 2
+Text Notes 9700 5700 0    60   ~ 0
+Loop 3
+Text Notes 9700 4700 0    60   ~ 0
+Loop 4
+Text Notes 9700 8550 0    60   ~ 0
+Loop 5
+Text Notes 9650 7550 0    60   ~ 0
+Loop 6
+NoConn ~ 9250 2250
+NoConn ~ 9250 3250
+NoConn ~ 9250 5100
+NoConn ~ 9250 6100
+NoConn ~ 9250 7900
+NoConn ~ 9250 8900
+$Comp
+L CONN_02X06 J7
+U 1 1 58C2D5BD
+P 9000 5850
+F 0 "J7" H 9000 6200 50  0000 C CNN
+F 1 "CONN_02X06" H 9000 5500 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9000 4650 50  0001 C CNN
+F 3 "" H 9000 4650 50  0001 C CNN
+	1    9000 5850
+	-1   0    0    -1  
+$EndComp
 $EndSCHEMATC

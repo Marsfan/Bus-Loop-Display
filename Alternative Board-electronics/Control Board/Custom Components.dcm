@@ -1,0 +1,16 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 74LVC245
+D 8-bit logic level shifter
+$ENDCMP
+#
+$CMP Large_Digit_Driver+LED
+D Contains Two SparkFun parts in one. The 6.5" 7 segment display (COM-08530), and the Large Digit Driver (WIG-13279)
+$ENDCMP
+#
+$CMP SW_SPDT_LED
+D Switch, single pole double throw
+K switch single-pole double-throw spdt ON-ON
+$ENDCMP
+#
+#End Doc Library

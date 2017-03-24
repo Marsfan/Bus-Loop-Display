@@ -1,4 +1,4 @@
-update=3/9/2017 10:38:55
+update=3/12/2017 13:38:45
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=../../../Kicad-Parts/kicad-library;../../../Kicad-Parts/kicad-library/library
+LibDir=C:/Users/Gabe/Documents/Kicad-Parts/kicad-library/library
 [eeschema/libraries]
 LibName1=74xgxx
 LibName2=74xx
