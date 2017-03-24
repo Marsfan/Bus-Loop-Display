@@ -31,13 +31,15 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
                      //0    1      2    3     4       5     6    7      8    9     -
 const byte digits[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x00};
                     //left  right
-const byte arrows[] = {0x01, 0x02};
+const byte arrows[] = {0x07, 0x56};
                   //  1     2     3
 const byte chips[] = {0x20, 0x21, 0x22};
                   //  A     B
 const byte ports[] = {0x12, 0x13};
 
 const int blinkTime = 1000;
+
+float voltage;
 
 byte bank[6][3] = {
   {digits[10], digits[10], digits[10]},  //digit 1
@@ -49,12 +51,12 @@ byte bank[6][3] = {
   {digits[10], digits[10], digits[10]},  //digit 6
 };
 
-//String data = "121340561 781900441"; //used to test code without actually sending string over bluetooth.
 String data = "";
 
 const byte cka = 4;
 const byte ckb = 5;
 const byte ckc = 6;
+boolean batWarn = false;
 
 void setup() {
   pinMode(cka, OUTPUT);
@@ -77,6 +79,7 @@ void setup() {
      Wire.write(0x01);
      Wire.write(0x00);
      Wire.endTransmission();
+     
   }
 
   
@@ -88,7 +91,7 @@ void setup() {
   Serial.println( F("BLE Initialized!") );
 
   delay(1000);
-  //if factor reset flagged, resets system
+  //if factory reset flagged, resets system
   if(FACTORYRESET_ENABLE){
     Serial.println(F("Performing Factory Reset"));
     if(!ble.factoryReset()){
@@ -135,8 +138,14 @@ void loop() {
   digitalWrite(ckc, HIGH);
   blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]);
   digitalWrite(ckc, LOW); 
-  
+  voltage = analogRead(0);
+  voltage = mapFloat(voltage, 0, 1023, 0, 5);
+  if(voltage < 3.4 && !batWarn){
+    ble.print(F("Low Battery"));
+    batWarn = true;
+  }
 }
+
 void splitMsg(String msg){
     //split message into 2 longs, so it can hold this data
     unsigned long first = msg.substring(0, 9).toInt();
@@ -191,10 +200,7 @@ void blinkChips(byte a1, byte b1, byte a2, byte b2, byte a3, byte b3){
   writeChip(chips[1], ports[1], b2);
   writeChip(chips[2], ports[1], b3);
   delayMicroseconds(blinkTime);
-  for(byte chip = 0; chip < 3; chip++){
-    writeChip(chips[chip], ports[1], 0);
-  }
-   
+  
 }
 
 void writeChip(byte chip, byte reg, byte data){
@@ -209,6 +215,11 @@ void writeChip(byte chip, byte reg, byte data){
 void error(const __FlashStringHelper*err) {
   Serial.println(err);
   while (1);
+}
+
+float mapFloat(long x, long in_min, long in_max, long out_min, long out_max)
+{
+ return (float)(x - in_min) * (out_max - out_min) / (float)(in_max - in_min) + out_min;
 }
 
 
