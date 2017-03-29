@@ -30,14 +30,15 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
  //The digits and Arrows are written in Hex, because that is the most commonly used form for I2C transmission. They break down into binary as instruction on what LED segments should be lit up.
                      //0    1      2    3     4       5     6    7      8    9     -
 const byte digits[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x00};
-                    //left  right
-const byte arrows[] = {0x07, 0x56};
+                    //off   left  right
+const byte arrows[] = {0x07, 0x38};
                   //  1     2     3
 const byte chips[] = {0x20, 0x21, 0x22};
                   //  A     B
-const byte ports[] = {0x12, 0x13};
+const byte ports[] = {0x14, 0x15};
 
 const int blinkTime = 1000;
+
 
 float voltage;
 
@@ -136,14 +137,14 @@ void loop() {
   blinkChips(bank[0][1], bank[1][1], bank[2][1], bank[3][1], bank[4][1], bank[5][1]);
   digitalWrite(ckb, LOW);
   digitalWrite(ckc, HIGH);
-  blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]);
+  blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]); //TODO try tweaking this specific line to pass raw value instead of variable. 
   digitalWrite(ckc, LOW); 
   voltage = analogRead(0);
   voltage = mapFloat(voltage, 0, 1023, 0, 5);
-  if(voltage < 3.4 && !batWarn){
+ /* if(voltage < 3.4 && !batWarn){
     ble.print(F("Low Battery"));
     batWarn = true;
-  }
+  }*/
 }
 
 void splitMsg(String msg){
@@ -175,11 +176,23 @@ void splitMsg(String msg){
         divisor = divisor / 10;
       }
     } 
+    for(int i = 0; i < 6; i++){
+      for(int q = 0; q < 3; q++){
+        
+        Serial.print(bank[i][q], HEX);
+        Serial.print("  ");
+        if(q == 2){
+          Serial.println("");
+        }
+      }
+    }
+
 }
 
 
 
 void getMsg(){
+  data = "";
   while(ble.available()){
     int c = ble.read();
     data.concat((char)c);
@@ -193,13 +206,17 @@ void blinkChips(byte a1, byte b1, byte a2, byte b2, byte a3, byte b3){
   writeChip(chips[1], ports[0], a2);
   writeChip(chips[2], ports[0], a3);
   delayMicroseconds(blinkTime);
-  for(byte chip = 0; chip < 3; chip++){
-    writeChip(chips[chip], ports[0], 0);
-  } 
+  writeChip(chips[0], ports[0], 0);
+  writeChip(chips[1], ports[0], 0);
+  writeChip(chips[2], ports[0], 0);
+  
   writeChip(chips[0], ports[1], b1);
   writeChip(chips[1], ports[1], b2);
   writeChip(chips[2], ports[1], b3);
   delayMicroseconds(blinkTime);
+  writeChip(chips[0], ports[1], 0);
+  writeChip(chips[1], ports[1], 0);
+  writeChip(chips[2], ports[1], 0);
   
 }
 
