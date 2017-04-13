@@ -7,32 +7,87 @@
 //
 
 import UIKit
+import CoreBluetooth
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
+    var manager:CBCentralManager!
+    var peripheral:CBPeripheral!
+    var peripherals = Array<CBPeripheral>()
+    
+    let devName = "CHS Bus Loop"
+    let servUUID = CBUUID(string: "6E400001-B5A3-F393-E0A9E50E24DCCA9E")
+    let txChar = CBUUID(string: "6E400002-B5A3-F393-E0A9E50E24DCCA9E")
+    let rxChar = CBUUID(string: "6E400003-B5A3-F393-E0A9E50E24DCCA9E")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager = CBCentralManager(delegate: self, queue: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == CBManagerState.poweredOn {
+            central.scanForPeripherals(withServices: [servUUID], options: nil)
+        } else {
+            print("Bluetooth not available.")
+        }
+    }
+    
+    
+    
+    func centralManager(central: CBCentralManager, didDiscoverperipheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+        let device = (advertisementData as NSDictionary)
+            .object(forKey: CBAdvertisementDataLocalNameKey)
+            as? NSString
+        if device?.contains(devName) == true{
+            self.manager.stopScan()
+            
+            self.peripheral = peripheral
+            self.peripheral.delegate = self
+            
+            manager.connect(peripheral, options: nil)
+        }
+        
+        func centralManager2(central: CBCentralManager, didConnectperipheral peripheral: CBPeripheral){
+            peripheral.discoverServices(nil)
+        }
+        func peripheral(peripheral: CBPeripheral,didDiscoverServices error: NSError?){
+            for service in peripheral.services! {
+                let thisService = service as CBService
+                
+                if service.uuid == txChar{
+                    peripheral.discoverCharacteristics(nil, for:thisService)
+                }
+            }
+        }
+        peripherals.append(peripheral)
+        tableView.reloadData()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var segment1: UISegmentedControl!
-    @IBOutlet weak var segment2: UISegmentedControl!
-    @IBOutlet weak var segment3: UISegmentedControl!
-    @IBOutlet weak var segment4: UISegmentedControl!
-    @IBOutlet weak var segment5: UISegmentedControl!
-    @IBOutlet weak var segment6: UISegmentedControl!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
     @IBOutlet weak var textField4: UITextField!
     @IBOutlet weak var textField5: UITextField!
     @IBOutlet weak var textField6: UITextField!
-    @IBOutlet weak var update: UIButton!
+    @IBOutlet weak var segment1: UISegmentedControl!
+    @IBOutlet weak var segment2: UISegmentedControl!
+    @IBOutlet weak var segment3: UISegmentedControl!
+    @IBOutlet weak var segment4: UISegmentedControl!
+    @IBOutlet weak var segment5: UISegmentedControl!
+    @IBOutlet weak var segment6: UISegmentedControl!
     
     @IBAction func updateDecimal(_ sender: Any) {
         var LED1=""
@@ -106,4 +161,24 @@ class ViewController: UIViewController {
         }
         
     }
+    
 }
+
+
+/*extension ViewController: UITableViewDataSource{
+ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+ 
+ let peripheral = peripherals[indexPath.row]
+ cell.textLabel?.text = peripheral.name
+ 
+ return cell
+ }
+ 
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+ return peripherals.count
+ }
+ }*/
+
+
+◀︎
