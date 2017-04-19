@@ -27,8 +27,16 @@ import CoreBluetooth
             super.viewDidLoad()
             textLabel.text="CHS We Are One"
             manager = CBCentralManager(delegate: self, queue: nil)
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+            view.addGestureRecognizer(tap)
             // Do any additional setup after loading the view, typically from a nib.
         }
+        //Calls this function when tap is recognised
+        func dismissKeyboard(){
+            //Causes the view (or one of its embedded textfields) to resign the first responder status
+            view.endEditing(true)
+        }
+
         
         func centralManagerDidUpdateState(_ central: CBCentralManager) {
             if central.state == CBManagerState.poweredOn {
