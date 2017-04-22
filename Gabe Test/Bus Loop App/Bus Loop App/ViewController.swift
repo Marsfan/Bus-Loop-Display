@@ -21,6 +21,7 @@ import CoreBluetooth
         let txChar = CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
         let rxChar = CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
         var txCharacteristic: CBCharacteristic?
+        var rxCharacteristic: CBCharacteristic? 
         let writeType: CBCharacteristicWriteType = .withoutResponse
         
         override func viewDidLoad() {
@@ -74,7 +75,7 @@ import CoreBluetooth
                 for service in peripheral.services! {
                     let thisService = service as CBService
                     
-                    if service.uuid == txChar{
+                    if service.uuid == servUUID{
                         peripheral.discoverCharacteristics(nil, for:thisService)
                     }
                 }
@@ -88,11 +89,14 @@ import CoreBluetooth
                     let thisCharacteristic = characteristic as CBCharacteristic
                     
                     if thisCharacteristic.uuid == rxChar {
+                        rxCharacteristic = thisCharacteristic
                         self.peripheral.setNotifyValue(
                             true, 
                             for: thisCharacteristic
                         )
                     }
+                    if thisCharacteristic.uuid = txChar{
+                        txCharacteristic = thisCharacteristic
                 }
             }
             
@@ -194,7 +198,7 @@ import CoreBluetooth
                 textLabel.text = combine
             }
             let data = combine.data(using: String.Encoding.utf8)
-            peripheral.writeValue(data, for txChar: CBCharacteristic, writeType: CBCharacteristicWriteType)
+            peripheral.writeValue(data!, for txChar: CBCharacteristic!, writeType: CBCharacteristicWriteType)
 
         }
 }
