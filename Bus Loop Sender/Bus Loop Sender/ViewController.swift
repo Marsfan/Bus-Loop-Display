@@ -159,7 +159,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             combine = LED1 + LED2 + LED3 + LED4 + LED5 + LED6
             textLabel.text = combine
         }
-        
+        let data = combine.data(using: String.Encoding.utf8)
+        peripheral.writeValue(data!, for: txCharacteristic!, type:CBCharacteristicWriteType.withoutResponse)
+        peripheral.writeValue(data, for txChar: CBCharacteristic, writeType: CBCharacteristicWriteType)
+        peripheral.writeValue(data, for: txChar)
+
     }
     
 }
@@ -179,6 +183,3 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
  return peripherals.count
  }
  }*/
-
-
-◀︎

@@ -198,8 +198,19 @@ import CoreBluetooth
                 textLabel.text = combine
             }
             let data = combine.data(using: String.Encoding.utf8)
+<<<<<<< Updated upstream
             peripheral.writeValue(data!, for txChar: CBCharacteristic!, writeType: CBCharacteristicWriteType)
+=======
+            sendMessage(data)
+            peripheral.writeValue(data?, for: txCharacteristic!, type: writeType)
+>>>>>>> Stashed changes
 
+        }
+        
+        func sendMessage(_ message: Data){
+            guard isReady else {return}
+            
+            peripheral.writeValue(message, for: txCharacteristic!, type: writeType)
         }
 }
 

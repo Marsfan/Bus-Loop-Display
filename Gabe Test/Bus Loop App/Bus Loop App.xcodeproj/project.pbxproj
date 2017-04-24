@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					6D2DD17D1E9C2FFF00E1F8AE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 93PRMRKZZ4;
+						DevelopmentTeam = RF2YN6YV47;
 						ProvisioningStyle = Automatic;
 					};
 					6D2DD1911E9C300000E1F8AE = {
@@ -415,7 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 93PRMRKZZ4;
+				DEVELOPMENT_TEAM = RF2YN6YV47;
 				INFOPLIST_FILE = "Bus Loop App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 93PRMRKZZ4;
+				DEVELOPMENT_TEAM = RF2YN6YV47;
 				INFOPLIST_FILE = "Bus Loop App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
