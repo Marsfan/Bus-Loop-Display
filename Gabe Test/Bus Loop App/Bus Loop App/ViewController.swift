@@ -20,8 +20,9 @@ import CoreBluetooth
         let servUUID = CBUUID(string: "6E400001-b5A3-F393-E0A9-E50E24DCCA9E")
         let txChar = CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
         let rxChar = CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
+        var Devservice: CBService?
         var txCharacteristic: CBCharacteristic?
-        var rxCharacteristic: CBCharacteristic? 
+        var rxCharacteristic: CBCharacteristic?
         let writeType: CBCharacteristicWriteType = .withoutResponse
         
         override func viewDidLoad() {
@@ -52,15 +53,14 @@ import CoreBluetooth
         
         
         func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-            NSLog("FOUND SOMEGTHING")
             let device = (advertisementData as NSDictionary)
                 .object(forKey: CBAdvertisementDataLocalNameKey)
                 as? NSString
             
             
-            if device?.contains(devName) == true{
+            if (device?.contains(devName) == true){
                 self.manager.stopScan()
-                
+                NSLog("Cpnnectong")
                 self.peripheral = peripheral
                 self.peripheral.delegate = self
                 
@@ -71,11 +71,12 @@ import CoreBluetooth
                 peripheral.discoverServices(nil)
             }
             
-            func peripheral(peripheral: CBPeripheral,didDiscoverServices error: NSError?){
+            func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?){
                 for service in peripheral.services! {
                     let thisService = service as CBService
-                    
-                    if service.uuid == servUUID{
+                    if thisService.uuid == servUUID{
+                        Devservice = thisService
+                        print(service.uuid)
                         peripheral.discoverCharacteristics(nil, for:thisService)
                     }
                 }
@@ -83,27 +84,30 @@ import CoreBluetooth
             
             func peripheral(
                 peripheral: CBPeripheral,
-                didDiscoverCharacteristicsForService service: CBService,
+                didDiscoverCharacteristicsForService Devservice: CBService,
                 error: NSError?) {
-                for characteristic in service.characteristics! {
+                for characteristic in Devservice.characteristics! {
                     let thisCharacteristic = characteristic as CBCharacteristic
                     
                     if thisCharacteristic.uuid == rxChar {
                         rxCharacteristic = thisCharacteristic
+                        NSLog("rx")
                         self.peripheral.setNotifyValue(
                             true, 
                             for: thisCharacteristic
                         )
                     }
-                    if thisCharacteristic.uuid = txChar{
+                    if thisCharacteristic.uuid == txChar{
+                        NSLog("tx")
                         txCharacteristic = thisCharacteristic
+                    }
                 }
             }
             
             
             
             
-            peripherals.append(peripheral)
+    //        peripherals.append(peripheral)
             //tableView.reloadData()
             
         }
@@ -198,20 +202,9 @@ import CoreBluetooth
                 textLabel.text = combine
             }
             let data = combine.data(using: String.Encoding.utf8)
-<<<<<<< Updated upstream
-            peripheral.writeValue(data!, for txChar: CBCharacteristic!, writeType: CBCharacteristicWriteType)
-=======
-            sendMessage(data)
-            peripheral.writeValue(data?, for: txCharacteristic!, type: writeType)
->>>>>>> Stashed changes
+            peripheral.writeValue(data!, for: txCharacteristic!, type: CBCharacteristicWriteType.withoutResponse)
+        }
 
-        }
-        
-        func sendMessage(_ message: Data){
-            guard isReady else {return}
-            
-            peripheral.writeValue(message, for: txCharacteristic!, type: writeType)
-        }
 }
 
 
