@@ -46,7 +46,7 @@ import CoreBluetooth
                 central.scanForPeripherals(withServices: nil, options: nil)
                 NSLog("SCANNING")
             } else {
-                print("Bluetooth not available.")
+                NSLog("Bluetooth not available.")
             }
         }
         
@@ -60,13 +60,13 @@ import CoreBluetooth
             
             if (device?.contains(devName) == true){
                 self.manager.stopScan()
-                NSLog("Cpnnectong")
                 self.peripheral = peripheral
                 self.peripheral.delegate = self
                 
                 manager.connect(peripheral, options: nil)
             }
-            
+        }
+        
             func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral){
                 peripheral.discoverServices(nil)
             }
@@ -81,24 +81,18 @@ import CoreBluetooth
                     }
                 }
             }
-            
-            func peripheral(
-                peripheral: CBPeripheral,
-                didDiscoverCharacteristicsForService Devservice: CBService,
-                error: NSError?) {
+        func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor Devservice: CBService, error: Error?){
                 for characteristic in Devservice.characteristics! {
                     let thisCharacteristic = characteristic as CBCharacteristic
                     
                     if thisCharacteristic.uuid == rxChar {
                         rxCharacteristic = thisCharacteristic
-                        NSLog("rx")
                         self.peripheral.setNotifyValue(
                             true, 
                             for: thisCharacteristic
                         )
                     }
                     if thisCharacteristic.uuid == txChar{
-                        NSLog("tx")
                         txCharacteristic = thisCharacteristic
                     }
                 }
@@ -109,8 +103,7 @@ import CoreBluetooth
             
     //        peripherals.append(peripheral)
             //tableView.reloadData()
-            
-        }
+        
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
