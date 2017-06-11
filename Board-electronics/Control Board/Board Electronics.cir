@@ -1,0 +1,40 @@
+* C:\Users\Gabe\Documents\GitHub\Bus-Loop-Display\Board-electronics\Control Board\Board Electronics.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 5/14/2017 21:00:10
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+U2  Net-_J2-Pad5_ Net-_J2-Pad4_ Net-_J2-Pad3_ Net-_SW1-Pad2_ Net-_J2-Pad2_ /controller.sch/A0 /GND /VCC ? ? Powerboost1000C		
+U3  Net-_J4-Pad2_ Net-_J4-Pad4_ Net-_J4-Pad6_ Net-_J4-Pad8_ Net-_J4-Pad10_ Net-_J4-Pad12_ Net-_J4-Pad11_ ? /VCC /GND /SCL /SDA /GND /GND /GND /VCC ? ? Net-_J5-Pad2_ Net-_J5-Pad4_ Net-_J5-Pad6_ Net-_J5-Pad8_ Net-_J5-Pad10_ Net-_J5-Pad12_ Net-_J5-Pad11_ ? MCP23017		
+U4  Net-_J6-Pad2_ Net-_J6-Pad4_ Net-_J6-Pad6_ Net-_J6-Pad8_ Net-_J6-Pad10_ Net-_J6-Pad12_ Net-_J6-Pad11_ ? /VCC /GND /SCL /SDA /VCC /GND /GND /VCC ? ? Net-_J7-Pad2_ Net-_J7-Pad4_ Net-_J7-Pad6_ Net-_J7-Pad8_ Net-_J7-Pad10_ Net-_J7-Pad12_ Net-_J7-Pad11_ ? MCP23017		
+U5  Net-_J8-Pad2_ Net-_J8-Pad4_ Net-_J8-Pad6_ Net-_J8-Pad8_ Net-_J8-Pad10_ Net-_J8-Pad12_ Net-_J8-Pad11_ ? /VCC /GND /SCL /SDA /VCC /VCC /GND /VCC ? ? Net-_J9-Pad2_ Net-_J9-Pad4_ Net-_J9-Pad6_ Net-_J9-Pad8_ Net-_J9-Pad10_ Net-_J9-Pad12_ Net-_J9-Pad11_ ? MCP23017		
+R1  Net-_R1-Pad1_ /VCC R220		
+R2  /SCL /VCC R4K7		
+R3  /SDA /VCC R4K7		
+U1  /MOD /CTS /TXO /RXI /VCC /RTS /GND /BLE_DFU Adafruit_Bluefruit_LE_UART_Friend		
+SW1  /GND Net-_SW1-Pad2_ /controller.sch/A0 Net-_R1-Pad1_ /GND SW_SPDT_LED		
+J1  /GND ? /VCC /RX /TX /RST CONN_01X06		
+C1  /controller.sch/RESET /RST C.1uF		
+J4  /CKC Net-_J4-Pad2_ /CKB Net-_J4-Pad4_ /CKA Net-_J4-Pad6_ /GND Net-_J4-Pad8_ ? Net-_J4-Pad10_ Net-_J4-Pad11_ Net-_J4-Pad12_ CONN_02X06		
+J6  /CKC Net-_J6-Pad2_ /CKB Net-_J6-Pad4_ /CKA Net-_J6-Pad6_ /GND Net-_J6-Pad8_ ? Net-_J6-Pad10_ Net-_J6-Pad11_ Net-_J6-Pad12_ CONN_02X06		
+J8  /CKC Net-_J8-Pad2_ /CKB Net-_J8-Pad4_ /CKA Net-_J8-Pad6_ /GND Net-_J8-Pad8_ ? Net-_J8-Pad10_ Net-_J8-Pad11_ Net-_J8-Pad12_ CONN_02X06		
+J9  /CKC Net-_J9-Pad2_ /CKB Net-_J9-Pad4_ /CKA Net-_J9-Pad6_ /GND Net-_J9-Pad8_ ? Net-_J9-Pad10_ Net-_J9-Pad11_ Net-_J9-Pad12_ CONN_02X06		
+J7  /CKC Net-_J7-Pad2_ /CKB Net-_J7-Pad4_ /CKA Net-_J7-Pad6_ /GND Net-_J7-Pad8_ ? Net-_J7-Pad10_ Net-_J7-Pad11_ Net-_J7-Pad12_ CONN_02X06		
+J2  /VCC Net-_J2-Pad2_ Net-_J2-Pad3_ Net-_J2-Pad4_ Net-_J2-Pad5_ Net-_J2-Pad2_ CONN_01X06		
+J10  Net-_J10-Pad1_ /GND CONN_02X01		
+R4  Net-_J10-Pad1_ /VCC R		
+J5  /CKC Net-_J5-Pad2_ /CKB Net-_J5-Pad4_ /CKA Net-_J5-Pad6_ /GND Net-_J5-Pad8_ ? Net-_J5-Pad10_ Net-_J5-Pad11_ Net-_J5-Pad12_ CONN_02X06		
+J3  /13 /7 /INT1 /INT0 /controller.sch/A1 /controller.sch/A2 /controller.sch/A3 /RST /AREF /SCL /SDA /BLE_DFU CONN_01X12		
+C4  /GND /VCC C		
+C7  /GND /VCC C		
+C6  /GND /VCC C		
+C5  /GND /VCC C		
+* Sheet Name: /controller.sch/
+U6  /controller.sch/RESET /RX /TX /INT0 /INT1 /CKA /VCC /GND Net-_C2-Pad2_ Net-_C3-Pad2_ /CKB /CKC /7 /RTS /RXI /TXO /CTS /MOD /13 /VCC /AREF /GND /controller.sch/A0 /controller.sch/A1 /controller.sch/A2 /controller.sch/A3 /SDA /SCL ATMEGA328P-PU		
+Y1  Net-_C2-Pad2_ Net-_C3-Pad2_ Crystal		
+C2  /GND Net-_C2-Pad2_ C20p		
+C3  /GND Net-_C3-Pad2_ C20p		
+
+.end

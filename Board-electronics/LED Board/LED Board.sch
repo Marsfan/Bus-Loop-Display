@@ -34,10 +34,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "LED Display Board"
+Date "2017-05-16"
+Rev "1"
+Comp "Coppell School of Engineering"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -423,7 +423,7 @@ U 1 1 58C31713
 P 3250 1850
 F 0 "Q1" H 3450 1925 50  0000 L CNN
 F 1 "PN2222A" H 3450 1850 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Molded_Narrow" H 3450 1775 50  0001 L CIN
+F 2 "TO_SOT_Packages_THT:TO-92_Molded_Wide_Oval" H 3450 1775 50  0001 L CIN
 F 3 "" H 3250 1850 50  0001 L CNN
 	1    3250 1850
 	-1   0    0    1   
@@ -434,7 +434,7 @@ U 1 1 58C331C3
 P 6050 1850
 F 0 "Q2" H 6250 1925 50  0000 L CNN
 F 1 "PN2222A" H 6250 1850 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Molded_Narrow" H 6250 1775 50  0001 L CIN
+F 2 "TO_SOT_Packages_THT:TO-92_Molded_Wide_Oval" H 6250 1775 50  0001 L CIN
 F 3 "" H 6050 1850 50  0001 L CNN
 	1    6050 1850
 	-1   0    0    1   
@@ -445,7 +445,7 @@ U 1 1 58C33AD7
 P 8700 1800
 F 0 "Q3" H 8900 1875 50  0000 L CNN
 F 1 "PN2222A" H 8900 1800 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Molded_Narrow" H 8900 1725 50  0001 L CIN
+F 2 "TO_SOT_Packages_THT:TO-92_Molded_Wide_Oval" H 8900 1725 50  0001 L CIN
 F 3 "" H 8700 1800 50  0001 L CNN
 	1    8700 1800
 	-1   0    0    1   
@@ -664,10 +664,8 @@ Text Label 5600 4300 0    60   ~ 0
 E
 Text Label 5600 4400 0    60   ~ 0
 F
-Text Label 6400 4300 2    60   ~ 0
+Text Label 6400 4400 2    60   ~ 0
 G
-Wire Wire Line
-	6250 4300 6400 4300
 Wire Wire Line
 	5600 3900 5750 3900
 Wire Wire Line
@@ -680,7 +678,6 @@ Wire Wire Line
 	5600 4300 5750 4300
 Wire Wire Line
 	5600 4400 5750 4400
-NoConn ~ 6250 4400
 $Comp
 L LED D18
 U 1 1 58D0BDC1
@@ -787,4 +784,7 @@ Text Notes 7850 3600 0    60   ~ 0
 Left Arrow
 Text Notes 8850 3600 0    60   ~ 0
 Right Arrow\n
+Wire Wire Line
+	6400 4400 6250 4400
+NoConn ~ 6250 4300
 $EndSCHEMATC
