@@ -20,7 +20,7 @@
 //We left out the SPI pin settings because we have the UART breakout board.
 
 //Configuration settings for bluefruit systems. 
-#define FACTORYRESET_ENABLE         1  //if 1, resets bluefruit upon code upload, this means any glitches we made are cleared out. WARNING! CHANGE TO 0 PRIOR TO DEPLOYING PROJECT
+#define FACTORYRESET_ENABLE         0  //if 1, resets bluefruit upon code upload, this means any glitches we made are cleared out. WARNING! CHANGE TO 0 PRIOR TO DEPLOYING PROJECT
 #define MINIMUM_FIRMWARE_VERSION    "0.6.6" //checks to make sure some features are availble based on minimum firmware. 
 #define MODE_LED_BEHAVIOUR          "MODE"  //What makes the led blink. Options are:
                                             //DISABLE, 
