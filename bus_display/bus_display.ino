@@ -28,12 +28,12 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
 
 
 //The digits and Arrows are written in Hex, because that is the most commonly used form for I2C transmission. They break down into binary as instruction on what LED segments should be lit up.
-//0    1      2    3     4       5     6    7      8    9     -
+//                       0    1      2    3     4       5     6    7      8    9     -
 const byte digits[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x00};
 //off   left  right
 const byte arrows[] = {0x07, 0x38};
 //  1     2     3
-const byte chips[] = {0x20, 0x21, 0x22};
+const byte chips[] = {0x20, 0x21, 0x23};
 //  A     B
 const byte ports[] = {0x14, 0x15};
 
@@ -95,13 +95,13 @@ void setup() {
   //if factory reset flagged, resets system
   if (FACTORYRESET_ENABLE) {
     Serial.println(F("Performing Factory Reset"));
+    ble.sendCommandCheckOK("AT+GAPDEVNAME=" deviceName);
     if (!ble.factoryReset()) {
       error(F("Factory Reset Failed, this sometimes happens after uploading code"));
     }
   }
   
-  ble.sendCommandCheckOK("AT+GAPDEVNAME=" deviceName);
-
+  
   ble.echo(false); //disables command echo from Bluefruit, reducing tx/rx times.
   ble.info(); //Display information about bluefruit over serial bus.
   ble.verbose(false); //debug info gets annoying, remove if something is really wonky.
@@ -140,7 +140,7 @@ void loop() {
   blinkChips(bank[0][1], bank[1][1], bank[2][1], bank[3][1], bank[4][1], bank[5][1]);
   digitalWrite(ckb, LOW);
   digitalWrite(ckc, HIGH);
-  blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]); //TODO try tweaking this specific line to pass raw value instead of variable.
+  blinkChips(bank[0][2], bank[1][2], bank[2][2], bank[3][2], bank[4][2], bank[5][2]);
   digitalWrite(ckc, LOW);
   voltage = analogRead(0);
   voltage = mapFloat(voltage, 0, 1023, 0, 5);
@@ -155,6 +155,7 @@ void splitMsg(String msg) {
   unsigned long first = msg.substring(0, 9).toInt();
   unsigned long last = msg.substring(9).toInt();
   //write values to bank using first and last variables
+  Serial.println(F("New Digit Values"));
   unsigned long divisor = 100000000;                                     //set a divisor to find the first digit
   for (int x = 0; x < 3; x++) {                                           //loop through the first three banks
     for (int y = 0; y < 3; y++) {                                         //loop through the three digits per bank
@@ -200,6 +201,8 @@ void getMsg() {
     int c = ble.read();
     data.concat((char)c);
   }
+  Serial.println(F("Message Recieved"));
+  Serial.println(F("Raw Message"));
   splitMsg(data);
 
 }
