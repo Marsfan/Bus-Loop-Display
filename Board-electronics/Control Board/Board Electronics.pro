@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=C:/Users/Gabe/Documents/Kicad-Parts/kicad-library/library
+LibDir=D:\Documents\KiCad Libraries\kicad-library\library
 [eeschema/libraries]
 LibName1=74xgxx
 LibName2=74xx
