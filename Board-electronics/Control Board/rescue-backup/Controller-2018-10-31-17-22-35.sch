@@ -1,6 +1,90 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:74xgxx
+LIBS:74xx
+LIBS:ac-dc
+LIBS:actel
+LIBS:adc-dac
+LIBS:allegro
+LIBS:Altera
+LIBS:analog_devices
+LIBS:analog_switches
+LIBS:atmel
+LIBS:audio
+LIBS:battery_management
+LIBS:bbd
+LIBS:brooktre
+LIBS:cmos_ieee
+LIBS:cmos4000
+LIBS:conn
+LIBS:contrib
+LIBS:cypress
+LIBS:dc-dc
+LIBS:device
+LIBS:digital-audio
+LIBS:diode
+LIBS:display
+LIBS:dsp
+LIBS:elec-unifil
+LIBS:ESD_Protection
+LIBS:ftdi
+LIBS:gennum
+LIBS:hc11
+LIBS:intel
+LIBS:interface
+LIBS:ir
+LIBS:Lattice
+LIBS:linear
+LIBS:maxim
+LIBS:mechanical
+LIBS:memory
+LIBS:microchip
+LIBS:microchip_dspic33dsc
+LIBS:microchip_pic10mcu
+LIBS:microchip_pic12mcu
+LIBS:microchip_pic16mcu
+LIBS:microchip_pic18mcu
+LIBS:microchip_pic32mcu
+LIBS:microcontrollers
+LIBS:motor_drivers
+LIBS:motorola
+LIBS:motors
+LIBS:msp430
+LIBS:nordicsemi
+LIBS:nxp_armmcu
+LIBS:onsemi
+LIBS:opto
+LIBS:Oscillators
+LIBS:philips
+LIBS:power
+LIBS:Power_Management
+LIBS:powerint
+LIBS:pspice
+LIBS:references
+LIBS:regul
+LIBS:relays
+LIBS:rfcom
+LIBS:sensors
+LIBS:silabs
+LIBS:siliconi
+LIBS:stm8
+LIBS:stm32
+LIBS:supertex
+LIBS:switches
+LIBS:texas
+LIBS:transf
+LIBS:transistors
+LIBS:ttl_ieee
+LIBS:valves
+LIBS:video
+LIBS:wiznet
+LIBS:Worldsemi
+LIBS:Xicor
+LIBS:xilinx
+LIBS:zetex
+LIBS:Zilog
+LIBS:Custom Components
 LIBS:Board Electronics-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,11 +99,9 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Board-Electronics-rescue:ATMEGA328P-PU U6
+L ATMEGA328P-PU U6
 U 1 1 58ADD6C3
 P 5200 3350
-AR Path="/58ADD6C3" Ref="U6"  Part="1" 
-AR Path="/58ADCD5B/58ADD6C3" Ref="U6"  Part="1" 
 F 0 "U6" H 4450 4600 50  0000 L BNN
 F 1 "ATMEGA328P-PU" H 5600 1950 50  0000 L BNN
 F 2 "Housings_DIP:DIP-28_W7.62mm_LongPads" H 5200 3350 50  0001 C CIN
@@ -28,11 +110,9 @@ F 3 "" H 5200 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:Crystal Y1
+L Crystal Y1
 U 1 1 58ADDAC1
 P 6850 2900
-AR Path="/58ADDAC1" Ref="Y1"  Part="1" 
-AR Path="/58ADCD5B/58ADDAC1" Ref="Y1"  Part="1" 
 F 0 "Y1" H 6850 3050 50  0000 C CNN
 F 1 "Crystal" H 6850 2750 50  0000 C CNN
 F 2 "Crystals:Crystal_HC49-U_Vertical" H 6850 2900 50  0001 C CNN
@@ -49,11 +129,9 @@ XTAL_GND
 Text Label 7850 2900 0    60   ~ 0
 XTAL_GND
 $Comp
-L Board-Electronics-rescue:C_Small C9
+L C_Small C9
 U 1 1 58AE41CC
 P 7200 2750
-AR Path="/58AE41CC" Ref="C9"  Part="1" 
-AR Path="/58ADCD5B/58AE41CC" Ref="C9"  Part="1" 
 F 0 "C9" H 7210 2820 50  0000 L CNN
 F 1 "C20p" H 7210 2670 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 7200 2750 50  0001 C CNN
@@ -62,11 +140,9 @@ F 3 "" H 7200 2750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Board-Electronics-rescue:C_Small C10
+L C_Small C10
 U 1 1 58AE4207
 P 7200 3050
-AR Path="/58AE4207" Ref="C10"  Part="1" 
-AR Path="/58ADCD5B/58AE4207" Ref="C10"  Part="1" 
 F 0 "C10" H 7210 3120 50  0000 L CNN
 F 1 "C20p" H 7210 2970 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 7200 3050 50  0001 C CNN
@@ -119,11 +195,9 @@ Text HLabel 6350 4550 2    60   Input ~ 0
 Text HLabel 4150 2850 0    60   Input ~ 0
 AREF
 $Comp
-L Board-Electronics-rescue:C C8
+L C C8
 U 1 1 591B7FA4
 P 3600 2100
-AR Path="/591B7FA4" Ref="C8"  Part="1" 
-AR Path="/58ADCD5B/591B7FA4" Ref="C8"  Part="1" 
 F 0 "C8" H 3625 2200 50  0000 L CNN
 F 1 "C4.7u" H 3625 2000 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D7.5mm_W5.0mm_P5.00mm" H 3638 1950 50  0001 C CNN
@@ -132,11 +206,9 @@ F 3 "" H 3600 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:C C6
+L C C6
 U 1 1 591B7FF2
 P 3350 2100
-AR Path="/591B7FF2" Ref="C6"  Part="1" 
-AR Path="/58ADCD5B/591B7FF2" Ref="C6"  Part="1" 
 F 0 "C6" H 3375 2200 50  0000 L CNN
 F 1 "C.1u" H 3375 2000 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W4.4mm_P5.00mm" H 3388 1950 50  0001 C CNN
@@ -145,11 +217,9 @@ F 3 "" H 3350 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:C C7
+L C C7
 U 1 1 591B8155
 P 3550 2700
-AR Path="/591B8155" Ref="C7"  Part="1" 
-AR Path="/58ADCD5B/591B8155" Ref="C7"  Part="1" 
 F 0 "C7" H 3575 2800 50  0000 L CNN
 F 1 "C.1u" H 3575 2600 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W4.4mm_P5.00mm" H 3588 2550 50  0001 C CNN
@@ -158,11 +228,9 @@ F 3 "" H 3550 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:C C5
+L C C5
 U 1 1 591B815B
 P 3300 2700
-AR Path="/591B815B" Ref="C5"  Part="1" 
-AR Path="/58ADCD5B/591B815B" Ref="C5"  Part="1" 
 F 0 "C5" H 3325 2800 50  0000 L CNN
 F 1 "C10u" H 3325 2600 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D6.0mm_W4.4mm_P5.00mm" H 3338 2550 50  0001 C CNN

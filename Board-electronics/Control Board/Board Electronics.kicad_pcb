@@ -1,9 +1,6 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.6)
+(kicad_pcb (version 20171130) (host pcbnew "(5.0.0)")
 
   (general
-    (links 161)
-    (no_connects 43)
-    (area 67.089143 76.708 214.850858 160.353)
     (thickness 1.6)
     (drawings 45)
     (tracks 436)
@@ -69,6 +66,9 @@
     (pcbplotparams
       (layerselection 0x030f0_80000001)
       (usegerberextensions false)
+      (usegerberattributes false)
+      (usegerberadvancedattributes false)
+      (creategerberjobfile false)
       (excludeedgelayer true)
       (linewidth 0.100000)
       (plotframeref false)
@@ -77,8 +77,7 @@
       (useauxorigin false)
       (hpglpennumber 1)
       (hpglpenspeed 20)
-      (hpglpendiameter 15)
-      (hpglpenoverlay 2)
+      (hpglpendiameter 15.000000)
       (psnegative false)
       (psa4output false)
       (plotreference true)
@@ -90,7 +89,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory Gerbers/))
+      (outputdirectory "Gerbers/"))
   )
 
   (net 0 "")
@@ -287,9 +286,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -809,9 +808,9 @@
       (net 7 /SDA))
     (pad 2 thru_hole oval (at 10.16 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Resistors_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
+    (model ${KISYS3DMOD}/Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -847,9 +846,9 @@
       (net 77 "Net-(R2-Pad1)"))
     (pad 2 thru_hole oval (at 10.16 0 90) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Resistors_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
+    (model ${KISYS3DMOD}/Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -885,9 +884,9 @@
       (net 6 /SCL))
     (pad 2 thru_hole oval (at 10.16 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Resistors_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
+    (model ${KISYS3DMOD}/Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -932,10 +931,10 @@
       (net 61 /VBUS))
     (pad 6 thru_hole oval (at 0 12.7) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 58 /G))
-    (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_1x06_Pitch2.54mm.wrl
-      (at (xyz 0 -0.25 0))
+    (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.wrl
+      (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 90))
+      (rotate (xyz 0 0 0))
     )
   )
 
@@ -975,10 +974,10 @@
       (net 16 /TX))
     (pad 6 thru_hole oval (at 0 12.7 90) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 14 /RST))
-    (model Pin_Headers.3dshapes/Pin_Header_Straight_1x06_Pitch2.54mm.wrl
-      (at (xyz 0 -0.25 0))
+    (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.wrl
+      (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 90))
+      (rotate (xyz 0 0 0))
     )
   )
 
@@ -1084,10 +1083,10 @@
   (module "Extra-Parts:SOE Logo" (layer F.Cu) (tedit 0) (tstamp 58D1D0EC)
     (at 156.464 152.146)
     (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
-      (effects (font (thickness 0.3)))
+      (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
     (fp_text value LOGO (at 0.75 0) (layer F.SilkS) hide
-      (effects (font (thickness 0.3)))
+      (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
     (fp_poly (pts (xy 1.862117 4.716102) (xy 1.923741 4.739105) (xy 2.053539 4.778208) (xy 2.168974 4.789714)
       (xy 2.24334 4.791007) (xy 2.27873 4.797773) (xy 2.284535 4.814342) (xy 2.273905 4.838095)
@@ -1766,15 +1765,20 @@
       (net 33 "Net-(J5-Pad2)"))
     (pad "" np_thru_hole circle (at -2.90152 -8.434404 180) (size 1.524 1.524) (drill 1.5) (layers *.Cu *.Mask))
     (pad "" np_thru_hole circle (at -2.90152 9.135596 180) (size 1.524 1.524) (drill 1.5) (layers *.Cu *.Mask))
+    (model ${KISYS3DMOD}/Connector_Molex.3dshapes/Molex_Picoflex_90325-0012_2x06_P1.27mm_Vertical.step
+      (offset (xyz -1.5 7.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Extra-Parts:Picofit-12 (layer F.Cu) (tedit 59112A32) (tstamp 591131A4)
     (at 176.784 85.344 270)
     (path /58C2DAB3)
-    (fp_text reference J10 (at -3.32652 11.684 360) (layer F.SilkS)
+    (fp_text reference J10 (at -3.32652 11.684) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value CONN_02X06 (at -5.23152 3.525596 360) (layer F.Fab)
+    (fp_text value CONN_02X06 (at -5.23152 3.525596) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start 3.03848 10.428596) (end -3.96152 10.428596) (layer F.SilkS) (width 0.15))
@@ -1843,10 +1847,10 @@
       (net 77 "Net-(R2-Pad1)"))
     (pad 5 thru_hole oval (at 0 10.16) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 2 /GND))
-    (model Pin_Headers.3dshapes/Pin_Header_Straight_1x05_Pitch2.54mm.wrl
-      (at (xyz 0 -0.2 0))
+    (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.step
+      (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 90))
+      (rotate (xyz 0 0 0))
     )
   )
 
@@ -1881,9 +1885,9 @@
       (net 67 "Net-(C9-Pad2)"))
     (pad 2 thru_hole circle (at 4.88 0 180) (size 1.5 1.5) (drill 0.8) (layers *.Cu *.Mask)
       (net 68 "Net-(C10-Pad2)"))
-    (model Crystals.3dshapes/Crystal_HC49-U_Vertical.wrl
+    (model ${KISYS3DMOD}/Crystal.3dshapes/Crystal_HC49-U_Vertical.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 0.6))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1917,9 +1921,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 67 "Net-(C9-Pad2)"))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W2.5mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W2.5mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1953,9 +1957,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 68 "Net-(C10-Pad2)"))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W2.5mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W2.5mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2316,10 +2320,10 @@
   (module Extra-Parts:Picofit-12 (layer F.Cu) (tedit 59112A32) (tstamp 59113160)
     (at 90.678 85.344 270)
     (path /58C2949B)
-    (fp_text reference J6 (at -3.81 12.192 360) (layer F.SilkS)
+    (fp_text reference J6 (at -3.81 12.192) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value CONN_02X06 (at -5.23152 3.525596 360) (layer F.Fab)
+    (fp_text value CONN_02X06 (at -5.23152 3.525596) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start 3.03848 10.428596) (end -3.96152 10.428596) (layer F.SilkS) (width 0.15))
@@ -2396,10 +2400,10 @@
   (module Extra-Parts:Picofit-12 (layer F.Cu) (tedit 59112A32) (tstamp 59113182)
     (at 133.096 85.344 270)
     (path /58C2D5BD)
-    (fp_text reference J8 (at -3.429 11.811 360) (layer F.SilkS)
+    (fp_text reference J8 (at -3.429 11.811) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value CONN_02X06 (at -5.23152 3.525596 360) (layer F.Fab)
+    (fp_text value CONN_02X06 (at -5.23152 3.525596) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start 3.03848 10.428596) (end -3.96152 10.428596) (layer F.SilkS) (width 0.15))
@@ -2468,7 +2472,7 @@
     (pad 2 thru_hole oval (at 2.54 0) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 2 /GND))
     (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_2x01_Pitch2.54mm.wrl
-      (at (xyz 0.05 0 0))
+      (offset (xyz 1.269999980926514 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 90))
     )
@@ -2527,9 +2531,14 @@
     (pad 12 thru_hole oval (at 0 27.94 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 17 /BLE_DFU))
     (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_1x12_Pitch2.54mm.wrl
-      (at (xyz 0 -0.55 0))
+      (offset (xyz 0 -13.96999979019165 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 90))
+    )
+    (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x12_P2.54mm_Vertical.step
+      (at (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
     )
   )
 
@@ -2612,7 +2621,7 @@
       (net 54 "Net-(J6-Pad11)"))
     (pad 14 thru_hole oval (at 0 33.02 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
     (pad 28 thru_hole oval (at 7.62 0 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
-    (model Housings_DIP.3dshapes/DIP-28_W7.62mm_LongPads.wrl
+    (model ${KISYS3DMOD}/Package_DIP.3dshapes/DIP-28_W7.62mm.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -2698,7 +2707,7 @@
       (net 56 "Net-(J8-Pad11)"))
     (pad 14 thru_hole oval (at 0 33.02 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
     (pad 28 thru_hole oval (at 7.62 0 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
-    (model Housings_DIP.3dshapes/DIP-28_W7.62mm_LongPads.wrl
+    (model ${KISYS3DMOD}/Package_DIP.3dshapes/DIP-28_W7.62mm.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -2784,7 +2793,7 @@
       (net 70 "Net-(J10-Pad11)"))
     (pad 14 thru_hole oval (at 0 33.02 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
     (pad 28 thru_hole oval (at 7.62 0 90) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask))
-    (model Housings_DIP.3dshapes/DIP-28_W7.62mm_LongPads.wrl
+    (model ${KISYS3DMOD}/Package_DIP.3dshapes/DIP-28_W7.62mm.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -2876,7 +2885,7 @@
       (net 13 /RTS))
     (pad 28 thru_hole oval (at 7.62 0 270) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 6 /SCL))
-    (model Housings_DIP.3dshapes/DIP-28_W7.62mm_LongPads.wrl
+    (model ${KISYS3DMOD}/Package_DIP.3dshapes/DIP-28_W7.62mm.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -2912,9 +2921,9 @@
       (net 5 /VCC))
     (pad 2 thru_hole circle (at 5 0) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 2 /GND))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D7.5mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2948,9 +2957,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2984,9 +2993,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3020,9 +3029,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3056,9 +3065,9 @@
       (net 5 /VCC))
     (pad 2 thru_hole circle (at 5 0) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 2 /GND))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D7.5mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3090,9 +3099,9 @@
       (net 2 /GND))
     (pad 2 thru_hole circle (at 5 0 180) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Capacitors_THT.3dshapes/C_Disc_D7.5mm_W5.0mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D7.5mm_W5.0mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3128,9 +3137,9 @@
       (net 8 /controller.sch/RESET))
     (pad 2 thru_hole oval (at 10.16 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Resistors_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
+    (model ${KISYS3DMOD}/Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3164,9 +3173,9 @@
       (net 14 /RST))
     (pad 2 thru_hole circle (at 5 0 270) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 8 /controller.sch/RESET))
-    (model Capacitors_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
+    (model ${KISYS3DMOD}/Capacitor_THT.3dshapes/C_Disc_D6.0mm_W4.4mm_P5.00mm.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -3202,9 +3211,9 @@
       (net 69 "Net-(J4-Pad1)"))
     (pad 2 thru_hole oval (at 10.16 0 180) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 5 /VCC))
-    (model Resistors_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
+    (model ${KISYS3DMOD}/Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 0.393701 0.393701 0.393701))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )

@@ -1,6 +1,90 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:74xgxx
+LIBS:74xx
+LIBS:ac-dc
+LIBS:actel
+LIBS:adc-dac
+LIBS:allegro
+LIBS:Altera
+LIBS:analog_devices
+LIBS:analog_switches
+LIBS:atmel
+LIBS:audio
+LIBS:battery_management
+LIBS:bbd
+LIBS:brooktre
+LIBS:cmos_ieee
+LIBS:cmos4000
+LIBS:conn
+LIBS:contrib
+LIBS:cypress
+LIBS:dc-dc
+LIBS:device
+LIBS:digital-audio
+LIBS:diode
+LIBS:display
+LIBS:dsp
+LIBS:elec-unifil
+LIBS:ESD_Protection
+LIBS:ftdi
+LIBS:gennum
+LIBS:hc11
+LIBS:intel
+LIBS:interface
+LIBS:ir
+LIBS:Lattice
+LIBS:linear
+LIBS:maxim
+LIBS:mechanical
+LIBS:memory
+LIBS:microchip
+LIBS:microchip_dspic33dsc
+LIBS:microchip_pic10mcu
+LIBS:microchip_pic12mcu
+LIBS:microchip_pic16mcu
+LIBS:microchip_pic18mcu
+LIBS:microchip_pic32mcu
+LIBS:microcontrollers
+LIBS:motor_drivers
+LIBS:motorola
+LIBS:motors
+LIBS:msp430
+LIBS:nordicsemi
+LIBS:nxp_armmcu
+LIBS:onsemi
+LIBS:opto
+LIBS:Oscillators
+LIBS:philips
+LIBS:power
+LIBS:Power_Management
+LIBS:powerint
+LIBS:pspice
+LIBS:references
+LIBS:regul
+LIBS:relays
+LIBS:rfcom
+LIBS:sensors
+LIBS:silabs
+LIBS:siliconi
+LIBS:stm8
+LIBS:stm32
+LIBS:supertex
+LIBS:switches
+LIBS:texas
+LIBS:transf
+LIBS:transistors
+LIBS:ttl_ieee
+LIBS:valves
+LIBS:video
+LIBS:wiznet
+LIBS:Worldsemi
+LIBS:Xicor
+LIBS:xilinx
+LIBS:zetex
+LIBS:Zilog
+LIBS:Custom Components
 LIBS:Board Electronics-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -21,7 +105,7 @@ SCL
 Text Label 1700 3750 0    60   ~ 0
 VCC
 $Comp
-L Custom-Components:Powerboost1000C U2
+L Powerboost1000C U2
 U 1 1 58AB412C
 P 5050 2500
 F 0 "U2" H 5300 3050 60  0000 C CNN
@@ -32,7 +116,7 @@ F 3 "" H 5050 2500 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Board-Electronics-rescue:MCP23017 U3
+L MCP23017 U3
 U 1 1 58AC6371
 P 7800 2650
 F 0 "U3" H 7700 3675 50  0000 R CNN
@@ -57,7 +141,7 @@ GND
 Text Label 9500 2050 2    60   ~ 0
 GND
 $Comp
-L Board-Electronics-rescue:MCP23017 U4
+L MCP23017 U4
 U 1 1 58B780F9
 P 7800 5500
 F 0 "U4" H 7700 6525 50  0000 R CNN
@@ -78,7 +162,7 @@ GND
 Text Label 7050 6300 0    60   ~ 0
 GND
 $Comp
-L Board-Electronics-rescue:MCP23017 U5
+L MCP23017 U5
 U 1 1 58B7BA61
 P 7800 8300
 F 0 "U5" H 7700 9325 50  0000 R CNN
@@ -113,7 +197,7 @@ CKC
 Text Label 1700 3400 0    60   ~ 0
 GND
 $Comp
-L Board-Electronics-rescue:R R2
+L R R2
 U 1 1 58B74BB7
 P 3200 2850
 F 0 "R2" V 3280 2850 50  0000 C CNN
@@ -132,7 +216,7 @@ SCL
 Text Label 6800 8700 0    60   ~ 0
 SDA
 $Comp
-L Board-Electronics-rescue:R R3
+L R R3
 U 1 1 58B60F9E
 P 3950 5600
 F 0 "R3" V 4030 5600 50  0000 C CNN
@@ -143,7 +227,7 @@ F 3 "" H 3950 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:R R4
+L R R4
 U 1 1 58B63B84
 P 4100 5600
 F 0 "R4" V 4180 5600 50  0000 C CNN
@@ -172,7 +256,7 @@ CKB
 Text Label 4150 3950 2    60   ~ 0
 CKC
 $Comp
-L Custom-Components:Adafruit_Bluefruit_LE_UART_Friend U1
+L Adafruit_Bluefruit_LE_UART_Friend U1
 U 1 1 58BA7A35
 P 4900 6200
 F 0 "U1" H 5100 5800 60  0000 C CNN
@@ -187,7 +271,7 @@ VCC
 Text Label 4900 6950 1    60   ~ 0
 GND
 $Comp
-L Custom-Components:SW_SPDT_LED SW1
+L SW_SPDT_LED SW1
 U 1 1 58BDBAB6
 P 3950 2650
 F 0 "SW1" H 3950 2820 50  0000 C CNN
@@ -220,7 +304,7 @@ CTS
 Text Label 4100 4550 2    60   ~ 0
 MOD
 $Comp
-L Board-Electronics-rescue:CONN_01X06 J1
+L CONN_01X06 J1
 U 1 1 58BF67D5
 P 2150 6600
 F 0 "J1" H 2150 6950 50  0000 C CNN
@@ -245,7 +329,7 @@ GND
 Text Label 1750 6550 0    60   ~ 0
 VCC
 $Comp
-L Board-Electronics-rescue:C C1
+L C C1
 U 1 1 58C4CD9F
 P 1300 4100
 F 0 "C1" H 1325 4200 50  0000 L CNN
@@ -297,7 +381,7 @@ INT0
 Text Label 5100 4050 0    60   ~ 0
 INT1
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J5
+L CONN_02X06 J5
 U 1 1 58C288FE
 P 9000 2000
 F 0 "J5" H 9000 2350 50  0000 C CNN
@@ -324,7 +408,7 @@ CKB
 Text Label 9500 4600 2    60   ~ 0
 CKC
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J7
+L CONN_02X06 J7
 U 1 1 58C2D5B4
 P 9000 4850
 F 0 "J7" H 9000 5200 50  0000 C CNN
@@ -351,7 +435,7 @@ CKB
 Text Label 9500 7400 2    60   ~ 0
 CKC
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J9
+L CONN_02X06 J9
 U 1 1 58C2DAAA
 P 9000 7650
 F 0 "J9" H 9000 8000 50  0000 C CNN
@@ -362,7 +446,7 @@ F 3 "" H 9000 6450 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J10
+L CONN_02X06 J10
 U 1 1 58C2DAB3
 P 9000 8650
 F 0 "J10" H 9000 9000 50  0000 C CNN
@@ -385,7 +469,7 @@ Loop 5
 Text Notes 9650 7550 0    60   ~ 0
 Loop 6
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J8
+L CONN_02X06 J8
 U 1 1 58C2D5BD
 P 9000 5850
 F 0 "J8" H 9000 6200 50  0000 C CNN
@@ -396,7 +480,7 @@ F 3 "" H 9000 4650 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:CONN_01X06 J2
+L CONN_01X06 J2
 U 1 1 59114132
 P 5000 1650
 F 0 "J2" H 5000 2000 50  0000 C CNN
@@ -407,7 +491,7 @@ F 3 "" H 5000 1650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Board-Electronics-rescue:CONN_02X01 J4
+L CONN_02X01 J4
 U 1 1 59133179
 P 6250 2400
 F 0 "J4" H 6250 2500 50  0000 C CNN
@@ -420,7 +504,7 @@ $EndComp
 Text Label 6500 2400 0    60   ~ 0
 GND
 $Comp
-L Board-Electronics-rescue:R R5
+L R R5
 U 1 1 5913FDF5
 P 5800 2400
 F 0 "R5" V 5880 2400 50  0000 C CNN
@@ -435,7 +519,7 @@ VCC
 Text Label 4900 4950 0    60   ~ 0
 BLE_DFU
 $Comp
-L Board-Electronics-rescue:CONN_02X06 J6
+L CONN_02X06 J6
 U 1 1 58C2949B
 P 9000 3000
 F 0 "J6" H 9000 3350 50  0000 C CNN
@@ -452,7 +536,7 @@ NoConn ~ 9250 5000
 NoConn ~ 9250 3150
 NoConn ~ 9250 2150
 $Comp
-L Board-Electronics-rescue:CONN_01X12 J3
+L CONN_01X12 J3
 U 1 1 591A1032
 P 5450 4400
 F 0 "J3" H 5450 5050 50  0000 C CNN
@@ -463,7 +547,7 @@ F 3 "" H 5450 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Board-Electronics-rescue:C C4
+L C C4
 U 1 1 5919352F
 P 7150 7350
 F 0 "C4" H 7175 7450 50  0000 L CNN
@@ -478,7 +562,7 @@ GND
 Text Label 6800 4700 0    60   ~ 0
 VCC
 $Comp
-L Board-Electronics-rescue:C C3
+L C C3
 U 1 1 59197A99
 P 7150 4550
 F 0 "C3" H 7175 4650 50  0000 L CNN
@@ -493,7 +577,7 @@ GND
 Text Label 6800 1850 0    60   ~ 0
 VCC
 $Comp
-L Board-Electronics-rescue:C C2
+L C C2
 U 1 1 591980F9
 P 7150 1700
 F 0 "C2" H 7175 1800 50  0000 L CNN
@@ -710,11 +794,11 @@ Wire Wire Line
 Wire Wire Line
 	9500 1950 9250 1950
 Wire Wire Line
-	3850 5250 3950 5250
+	3850 5250 4300 5250
 Wire Wire Line
-	3850 5150 4100 5150
+	3850 5150 4300 5150
 Wire Wire Line
-	4400 2750 4400 3200
+	4400 2750 4400 4750
 Wire Wire Line
 	3350 2850 3750 2850
 Wire Wire Line
@@ -891,7 +975,7 @@ Wire Wire Line
 Wire Wire Line
 	5250 2000 5250 1850
 Wire Wire Line
-	4850 1850 4850 2000
+	4850 1850 4850 2200
 Wire Wire Line
 	5250 2000 4850 2000
 Connection ~ 4850 2000
@@ -924,17 +1008,17 @@ Wire Wire Line
 Wire Wire Line
 	9250 5300 8300 5300
 Wire Wire Line
-	6800 7500 7150 7500
+	6800 7500 7300 7500
 Connection ~ 7150 7500
 Wire Wire Line
 	7150 7200 7150 7100
 Wire Wire Line
-	6800 4700 7150 4700
+	6800 4700 7300 4700
 Connection ~ 7150 4700
 Wire Wire Line
 	7150 4400 7150 4300
 Wire Wire Line
-	6800 1850 7150 1850
+	6800 1850 7300 1850
 Connection ~ 7150 1850
 Wire Wire Line
 	7150 1550 7150 1450
@@ -943,7 +1027,7 @@ Wire Wire Line
 Wire Wire Line
 	4750 2050 4750 2200
 Wire Wire Line
-	4550 1900 4650 1900
+	4550 1900 4750 1900
 Connection ~ 4650 1900
 Text Label 4550 1900 2    60   ~ 0
 VCC
@@ -982,7 +1066,7 @@ Wire Wire Line
 Wire Wire Line
 	1950 3750 1700 3750
 $Comp
-L Board-Electronics-rescue:R R1
+L R R1
 U 1 1 591C344D
 P 1550 4300
 F 0 "R1" V 1630 4300 50  0000 C CNN
@@ -1017,26 +1101,8 @@ SW1_COM
 Wire Wire Line
 	1150 4100 900  4100
 Wire Wire Line
-	1450 4100 1550 4100
+	1450 4100 1950 4100
 Wire Wire Line
 	1550 4100 1550 4150
 Connection ~ 1550 4100
-Wire Wire Line
-	3950 5250 4300 5250
-Wire Wire Line
-	4100 5150 4300 5150
-Wire Wire Line
-	4400 3200 4400 4750
-Wire Wire Line
-	4850 2000 4850 2200
-Wire Wire Line
-	7150 7500 7300 7500
-Wire Wire Line
-	7150 4700 7300 4700
-Wire Wire Line
-	7150 1850 7300 1850
-Wire Wire Line
-	4650 1900 4750 1900
-Wire Wire Line
-	1550 4100 1950 4100
 $EndSCHEMATC
